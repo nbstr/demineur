@@ -46,13 +46,32 @@ def main():
                 # GENERER AU HASAR ?
                 HASARD = input("\nVoulez vous générer les bombes au hasard ? (oui/non)")
                 grille = generer_bombes(HASARD[0].upper() == "O")
-                
+
                 continue
             else:
                 break
         else:
             # AFFICHER LA CASE
             afficher_case(champ, coordonnees[0], coordonnees[1], grille)
+
+            # FIN DU JEU ?
+            if(fin(champ, grille)):
+                print ("\n\n!!! FELICITATIONS !!!\nVous avez localisé toutes les mines\n\n")
+
+                # CONTNUER ?
+                CONTINUE = input("\nVoulez vous rejouer ? (oui/non)")
+                if(CONTINUE[0].upper() == "O"):
+                    champ = init_champ()
+
+                    # GENERER AU HASAR ?
+                    HASARD = input("\nVoulez vous générer les bombes au hasard ? (oui/non)")
+                    grille = generer_bombes(HASARD[0].upper() == "O")
+
+                    continue
+                else:
+                    break
+
+
     
     # GAME OVER
     header("GAME OVER")

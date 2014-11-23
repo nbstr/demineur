@@ -142,6 +142,14 @@ def afficher_case(champ, x, y, grille):
 
     return champ
 
+def fin(champ, grille):
+    count = 0
+    for ligne in champ:
+        for element in ligne:
+            if(element == "*"):
+                count += 1
+    return count == len(grille)
+
 
 
 
