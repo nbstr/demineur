@@ -17,13 +17,22 @@ def main():
     
     # DEMANDER COORDONNÉES
     while True:
+
     	# AFFICHER CHAMP DE MINES
         print_champ(champ)
+
+        # INPUT
         coordonnees = input_coordonnees()
-        print (coordonnees)
+        
+        # BOMBE
         if(bombe(coordonnees)):
             print ("\n\n!!! BOOM !!!\n\n")
-            break
+            # CONTNUER ?
+            CONTINUE = input("\nVoulez vous rejouer ? (oui/non)")
+            if(CONTINUE[0].upper() == "O"):
+                continue
+            else:
+                break
         else:
             print ("\n\n..ouf\n\n")
     
