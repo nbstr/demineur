@@ -56,7 +56,7 @@ def main():
 
             # FIN DU JEU ?
             if(fin(champ, grille)):
-                print ("\n\n!!! FELICITATIONS !!!\nVous avez localisé toutes les mines\n\n")
+                print ("\n\n!!! FÉLICITATIONS !!!\nVous avez localisé toutes les mines\n\n")
 
                 # CONTNUER ?
                 CONTINUE = input("\nVoulez vous rejouer ? (oui/non)")
@@ -74,7 +74,7 @@ def main():
 
     
     # GAME OVER
-    header("GAME OVER")
+    header("PARTIE TERMINÉE")
 
 main()
 
