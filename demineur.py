@@ -42,28 +42,38 @@ grille [(5 ,7)] = "B"
 grille [(7 ,0)] = "B"
 grille [(7 ,5)] = "B"
 
-def afficher_grille(g):
+def init_champ():
+    """
+    Initialise le champ de mines.
+    """
+    champ = []
+    for i in range(9):
+        champ.append(["*"] * 9)
+
+    # for bombe in grille:
+    #     print ("x: {}, y: {}, valeur: {}".format(bombe[0], bombe[1], grille[bombe]))
+    #     plateau[bombe[1]][bombe[0]] = grille[bombe]
+
+    return champ
+
+def print_champ(g):
+    """
+    Affiche le champ de mines.
+    """
     for ligne in g:
         print ("| " + " | ".join(ligne) + " |\n")
     print ("\n")
 
-def placer_bombes(grille):
+def bombe(coordonnees):
     """
-    Insère les bombes dans la grille
+    Vérifie s'il y a une bombe aux coordonnées indiquées.
     """
-    plateau = []
-    for i in range(9):
-        plateau.append(["*"] * 9)
-
-    for bombe in grille:
-        # print ("x: {}, y: {}, valeur: {}".format(bombe[0], bombe[1], grille[bombe]))
-        plateau[bombe[1]][bombe[0]] = grille[bombe]
-
-    return plateau
-
-plateau = placer_bombes(grille)
-
-afficher_grille(plateau)
+    pass
+    
+# INITIALISER CHAMP DE MINES
+champ = init_champ()
+# AFFICHER CHAMP DE MINES
+print_champ(champ)
 
 
 
