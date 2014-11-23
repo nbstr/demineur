@@ -44,7 +44,7 @@ def print_champ(g):
     """
     Affiche le champ de mines.
     """
-    print ("    " + "   ".join(str(col) for col in alpha_num))
+    print ("\n\n    " + "   ".join(str(col) for col in alpha_num))
 
     print ("  " + "-"*37)
     for i, ligne in enumerate(g):
@@ -83,3 +83,46 @@ def input_coordonnees():
             print("!! La lettre de la ligne est invalide\n")
 
     return (x, y)
+
+def afficher_case(champ, x, y):
+	"""
+	Affiche le nombre de bombes adjacentes.
+	""" 
+	nombre_bombes = 0
+	for ligne in range(y-1, y+2):
+		for colonne in range(x-1, x+2):
+			# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
+			if(colonne >= 0 and colonne < difficulte and ligne >= 0 and ligne < difficulte and (ligne != y or colonne != x)):
+				if(bombe((colonne, ligne))):
+					nombre_bombes += 1
+
+	# REMPLIR LA CASE
+	if(nombre_bombes == 0):
+		champ[y][x] = " "
+		# AFFICHER LES CASES ADJACENTES
+		for l in range(y-1, y+2):
+			for c in range(x-1, x+2):
+				# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
+				if(c >= 0 and c < difficulte and l >= 0 and l < difficulte and (l != y or c != x)):
+					# champ = afficher_case(champ, c, l)
+					print((c,l))
+	else:
+		champ[y][x] = str(nombre_bombes)
+
+	return champ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,7 @@ def main():
 
         # INPUT
         coordonnees = input_coordonnees()
-        
+
         # BOMBE
         if(bombe(coordonnees)):
             print ("\n\n!!! BOOM !!!\n\n")
@@ -34,7 +34,8 @@ def main():
             else:
                 break
         else:
-            print ("\n\n..ouf\n\n")
+            # AFFICHER LA CASE
+            afficher_case(champ, coordonnees[0], coordonnees[1])
     
     # GAME OVER
     header("GAME OVER")
