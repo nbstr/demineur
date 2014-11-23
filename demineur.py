@@ -2,7 +2,7 @@
 # HEADER                                  #
 #=========================================#
 
-def header(text="DÉMINEUR", vp=1, p=6, m=7, s="#", s2="="):
+def header(text="DÉMINEUR", vp=1, p=6, m=0, s="#", s2="="):
     """
     Affiche un beau titre.
     """
