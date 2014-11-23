@@ -42,6 +42,11 @@ def main():
             CONTINUE = input("\nVoulez vous rejouer ? (oui/non)")
             if(CONTINUE[0].upper() == "O"):
                 champ = init_champ()
+
+                # GENERER AU HASAR ?
+                HASARD = input("\nVoulez vous générer les bombes au hasard ? (oui/non)")
+                grille = generer_bombes(HASARD[0].upper() == "O")
+                
                 continue
             else:
                 break
