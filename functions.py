@@ -84,17 +84,26 @@ def input_coordonnees():
 
     return (x, y)
 
-def afficher_case(champ, x, y):
+def compte_bombes(x, y):
 	"""
-	Affiche le nombre de bombes adjacentes.
+	Compte le nombre de bombes aux alentours.
 	""" 
 	nombre_bombes = 0
+
 	for ligne in range(y-1, y+2):
 		for colonne in range(x-1, x+2):
 			# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
 			if(colonne >= 0 and colonne < difficulte and ligne >= 0 and ligne < difficulte and (ligne != y or colonne != x)):
 				if(bombe((colonne, ligne))):
 					nombre_bombes += 1
+	else:
+		return nombre_bombes
+
+def afficher_case(champ, x, y):
+	"""
+	Affiche le nombre de bombes adjacentes.
+	""" 
+	nombre_bombes = compte_bombes(x, y)
 
 	# REMPLIR LA CASE
 	if(nombre_bombes == 0):
@@ -104,8 +113,11 @@ def afficher_case(champ, x, y):
 			for c in range(x-1, x+2):
 				# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
 				if(c >= 0 and c < difficulte and l >= 0 and l < difficulte and (l != y or c != x)):
-					# champ = afficher_case(champ, c, l)
-					print((c,l))
+					sous_compte = compte_bombes(c, l)
+					if(sous_compte == 0):
+						champ[l][c] = " "
+					else:
+						champ[l][c] = str(compte_bombes(c, l))
 	else:
 		champ[y][x] = str(nombre_bombes)
 
