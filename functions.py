@@ -116,8 +116,10 @@ def afficher_case(champ, x, y):
 					sous_compte = compte_bombes(c, l)
 					if(sous_compte == 0):
 						champ[l][c] = " "
+						champ = afficher_case(champ, x, y)
 					else:
 						champ[l][c] = str(compte_bombes(c, l))
+		
 	else:
 		champ[y][x] = str(nombre_bombes)
 
