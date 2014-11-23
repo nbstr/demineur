@@ -51,12 +51,12 @@ def print_champ(g):
         print (alpha_maj[i] + " | " + " | ".join(ligne) + " |\n  " + "-"*37)
     print ("\n")
 
-def bombe(x, y):
+def bombe(coord):
     """
     Vérifie s'il y a une bombe aux coordonnées indiquées.
     """
     for bombe in grille:
-        if (bombe == (x, y)):
+        if (bombe == coord):
             return True;
     return False;
 
@@ -82,4 +82,4 @@ def input_coordonnees():
         except ValueError:
             print("!! La lettre de la ligne est invalide\n")
 
-    print (x, y)
+    return (x, y)
