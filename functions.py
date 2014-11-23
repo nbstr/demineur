@@ -29,11 +29,6 @@ def init_champ():
     champ = []
     for i in range(difficulte):
         champ.append(["*"] * difficulte)
-
-    # for bombe in grille:
-    #     print ("x: {}, y: {}, valeur: {}".format(bombe[0], bombe[1], grille[bombe]))
-    #     plateau[bombe[1]][bombe[0]] = grille[bombe]
-
     return champ
 
 def print_champ(g):
