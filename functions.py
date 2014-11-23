@@ -16,7 +16,11 @@ grille [(7 ,0)] = "B"
 grille [(7 ,5)] = "B"
 
 # DIFFICULTÉ
-difficulte = 9
+difficulte = 9 # !! MAX 26
+
+# COORDONNÉES
+alpha_maj = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+alpha_num = list(range(1, difficulte + 1))
 
 #=========================================#
 # FUNCTIONS                               #
@@ -35,8 +39,11 @@ def print_champ(g):
     """
     Affiche le champ de mines.
     """
-    for ligne in g:
-        print ("| " + " | ".join(ligne) + " |\n")
+    print ("    " + "   ".join(str(col) for col in alpha_num))
+
+    print ("  " + "-"*37)
+    for i, ligne in enumerate(g):
+        print (alpha_maj[i] + " | " + " | ".join(ligne) + " |\n  " + "-"*37)
     print ("\n")
 
 def bombe(x, y):
