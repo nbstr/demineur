@@ -14,6 +14,10 @@ def main():
     header()
     # INITIALISER CHAMP DE MINES
     champ = init_champ()
+
+    # GENERER AU HASAR ?
+    HASARD = input("\nVoulez vous générer les bombes au hasard ? (oui/non)")
+    grille = generer_bombes(HASARD[0].upper() == "O")
     
     # DEMANDER COORDONNÉES
     while True:
@@ -25,7 +29,7 @@ def main():
         coordonnees = input_coordonnees()
 
         # BOMBE
-        if(bombe(coordonnees)):
+        if(bombe(coordonnees, grille)):
             
             # AFFICHER CHAMP DE MINES
             champ[coordonnees[1]][coordonnees[0]] = "X"
@@ -43,14 +47,12 @@ def main():
                 break
         else:
             # AFFICHER LA CASE
-            afficher_case(champ, coordonnees[0], coordonnees[1])
+            afficher_case(champ, coordonnees[0], coordonnees[1], grille)
     
     # GAME OVER
     header("GAME OVER")
 
-
 main()
-
 
 
 
