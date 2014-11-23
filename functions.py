@@ -47,3 +47,11 @@ def bombe(x, y):
         if (bombe == (x, y)):
             return True;
     return False;
+
+def input_coordonnees():
+    """
+    Demande au joueur de selectionner une case.
+    INPUT: /
+    OUTPUT: (x, y) | avec x et y de type int
+    """
+    pass
