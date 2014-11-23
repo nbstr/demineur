@@ -1,7 +1,6 @@
 #=========================================#
 # IMPORTS                                 #
 #=========================================#
-from beautiful import *
 from functions import *
 
 #=========================================#
@@ -15,8 +14,12 @@ def main():
     header()
     # INITIALISER CHAMP DE MINES
     champ = init_champ()
-    # AFFICHER CHAMP DE MINES
-    print_champ(champ)
+    
+    # DEMANDER COORDONNÉES
+    while True:
+    	# AFFICHER CHAMP DE MINES
+    	print_champ(champ)
+    	input_coordonnees()
 
 main()
 

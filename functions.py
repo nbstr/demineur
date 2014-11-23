@@ -1,4 +1,9 @@
 #=========================================#
+# IMPORTS                                 #
+#=========================================#
+from beautiful import *
+
+#=========================================#
 # CONFIG                                  #
 #=========================================#  
 
@@ -61,5 +66,23 @@ def input_coordonnees():
     INPUT: /
     INPUT USER: "A", "7" (ligne, colonne)
     OUTPUT: (x, y) | avec x et y de type int
-    """
-    pass
+    """    
+    # VALIDATION X
+    while True:
+        x = input_int("• Veuillez entrer le numéro d’une colonne: ")
+        if(x < 1 or x > difficulte):
+            print ("!! Le numéro de la colonne est invalide\n")
+        else:
+            x -= 1
+            break
+
+    # VALIDATION Y
+    while True:
+        y = input("• Veuillez entrer la lettre d’une ligne: ")
+        try:
+            y = int(alpha_maj[:difficulte].index(y.upper()))
+            break
+        except ValueError:
+            print("!! La lettre de la ligne est invalide\n")
+
+    print (x, y)
