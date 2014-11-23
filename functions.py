@@ -63,9 +63,6 @@ def bombe(x, y):
 def input_coordonnees():
     """
     Demande au joueur de selectionner une case.
-    INPUT: /
-    INPUT USER: "A", "7" (ligne, colonne)
-    OUTPUT: (x, y) | avec x et y de type int
     """    
     # VALIDATION X
     while True:
