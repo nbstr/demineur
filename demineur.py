@@ -37,6 +37,7 @@ def main():
             # CONTNUER ?
             CONTINUE = input("\nVoulez vous rejouer ? (oui/non)")
             if(CONTINUE[0].upper() == "O"):
+                champ = init_champ()
                 continue
             else:
                 break
