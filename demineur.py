@@ -68,8 +68,8 @@ def bombe(coordonnees):
     """
     Vérifie s'il y a une bombe aux coordonnées indiquées.
     """
-    pass
-    
+    return bombe == coordonnees;
+
 # INITIALISER CHAMP DE MINES
 champ = init_champ()
 # AFFICHER CHAMP DE MINES
