@@ -21,11 +21,12 @@ grille [(7 ,0)] = "B"
 grille [(7 ,5)] = "B"
 
 # DIFFICULTÉ
-difficulte = 9 # !! MAX 26
+nb_cases = 9 # !! MAX 26
+nb_bombes = 9 # !! MAX nb_cases**2
 
 # COORDONNÉES
 alpha_maj = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-alpha_num = list(range(1, difficulte + 1))
+alpha_num = list(range(1, nb_cases + 1))
 
 #=========================================#
 # FUNCTIONS                               #
@@ -36,8 +37,8 @@ def init_champ():
     Initialise le champ de mines.
     """
     champ = []
-    for i in range(difficulte):
-        champ.append(["*"] * difficulte)
+    for i in range(nb_cases):
+        champ.append(["*"] * nb_cases)
     return champ
 
 def print_champ(g):
@@ -63,24 +64,24 @@ def bombe(coord):
 def input_coordonnees():
     """
     Demande au joueur de selectionner une case.
-    """    
-    # VALIDATION X
-    while True:
-        x = input_int("• Veuillez entrer le numéro d’une colonne: ")
-        if(x < 1 or x > difficulte):
-            print ("!! Le numéro de la colonne est invalide\n")
-        else:
-            x -= 1
-            break
-
+    """
     # VALIDATION Y
     while True:
         y = input("• Veuillez entrer la lettre d’une ligne: ")
         try:
-            y = int(alpha_maj[:difficulte].index(y.upper()))
+            y = int(alpha_maj[:nb_cases].index(y.upper()))
             break
         except ValueError:
             print("!! La lettre de la ligne est invalide\n")
+
+    # VALIDATION X
+    while True:
+        x = input_int("• Veuillez entrer le numéro d’une colonne: ")
+        if(x < 1 or x > nb_cases):
+            print ("!! Le numéro de la colonne est invalide\n")
+        else:
+            x -= 1
+            break
 
     return (x, y)
 
@@ -93,7 +94,7 @@ def compte_bombes(x, y):
 	for ligne in range(y-1, y+2):
 		for colonne in range(x-1, x+2):
 			# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
-			if(colonne >= 0 and colonne < difficulte and ligne >= 0 and ligne < difficulte and (ligne != y or colonne != x)):
+			if(colonne >= 0 and colonne < nb_cases and ligne >= 0 and ligne < nb_cases and (ligne != y or colonne != x)):
 				if(bombe((colonne, ligne))):
 					nombre_bombes += 1
 	else:
@@ -112,7 +113,7 @@ def afficher_case(champ, x, y):
 		for l in range(y-1, y+2):
 			for c in range(x-1, x+2):
 				# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
-				if(c >= 0 and c < difficulte and l >= 0 and l < difficulte and (l != y or c != x) and champ[l][c] == "*"):
+				if(c >= 0 and c < nb_cases and l >= 0 and l < nb_cases and (l != y or c != x) and champ[l][c] == "*"):
 					sous_compte = compte_bombes(c, l)
 					if(sous_compte == 0):
 						champ[l][c] = " "
