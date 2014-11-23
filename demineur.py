@@ -27,6 +27,9 @@ def main():
         # BOMBE
         if(bombe(coordonnees)):
             print ("\n\n!!! BOOM !!!\n\n")
+            champ[coordonnees[1]][coordonnees[0]] = "X"
+            # AFFICHER CHAMP DE MINES
+            print_champ(champ)
             # CONTNUER ?
             CONTINUE = input("\nVoulez vous rejouer ? (oui/non)")
             if(CONTINUE[0].upper() == "O"):
