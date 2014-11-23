@@ -112,11 +112,11 @@ def afficher_case(champ, x, y):
 		for l in range(y-1, y+2):
 			for c in range(x-1, x+2):
 				# VERIFIER SI ON EST TOUJOURS SUR LE CHAMP DE MINES
-				if(c >= 0 and c < difficulte and l >= 0 and l < difficulte and (l != y or c != x)):
+				if(c >= 0 and c < difficulte and l >= 0 and l < difficulte and (l != y or c != x) and champ[l][c] == "*"):
 					sous_compte = compte_bombes(c, l)
 					if(sous_compte == 0):
 						champ[l][c] = " "
-						champ = afficher_case(champ, x, y)
+						champ = afficher_case(champ, c, l)
 					else:
 						champ[l][c] = str(compte_bombes(c, l))
 		
